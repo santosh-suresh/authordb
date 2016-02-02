@@ -11,7 +11,7 @@ defmodule Authordb.Publisher do
 		timestamps
 	end
 
-	@required_fields ~w(name, address, city, state, zip)
+	@required_fields ~w(name address city state zip)
 	@optional_fields ~w()
 
 	def changeset(model, params \\ :empty) do
