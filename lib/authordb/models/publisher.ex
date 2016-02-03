@@ -8,6 +8,7 @@ defmodule Authordb.Publisher do
 		field :state, :string
 		field :zip, :string
 
+		has_many :books, Authordb.Book
 		timestamps
 	end
 
