@@ -7,7 +7,7 @@ config :authordb, Authordb.Repo,
   database: "authordb_repo",
   username: "santoshs",
   password: "santoshs",
-  hostname: "localhost"
+  hostname: "localhost" 
 
 
 # This configuration is loaded before any dependency and is restricted

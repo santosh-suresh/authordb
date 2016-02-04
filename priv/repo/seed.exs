@@ -1,14 +1,24 @@
 defmodule Authordb.Seed do
 	alias Authordb.Publisher
 	alias Authordb.Book
+	alias Authordb.Category
 	alias Authordb.Repo
 	# import Ecto.Query
 
 	def generate do
 		_reset_db
 		[manning, oreilly] = generate_publishers
+		_cats = _generate_categories		
 		generate_books(10, manning)
 		generate_books(12, oreilly)
+	end
+
+	defp _generate_categories do
+		cats = ["Fiction", "Thriller", "Programming", "Mystery", "Science Fiction"]
+		Enum.map cats, fn(cat) ->
+			chg = Category.changeset(%Category{}, %{name: cat})
+			Repo.insert! chg
+		end
 	end
 
 	defp generate_publishers do
@@ -20,9 +30,6 @@ defmodule Authordb.Seed do
 	end
 
 	defp _reset_db do
-		Mix.Task.run "ecto.drop", ["Authordb.Repo"]
-		Mix.Task.run "ecto.create", ["Authordb.Repo"]
-		Mix.Task.run "ecto.migrate", ["Authordb.Repo"]
 	end
 
 	defp generate_books(count, publisher) do

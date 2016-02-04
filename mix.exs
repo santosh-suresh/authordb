@@ -7,6 +7,7 @@ defmodule Authordb.Mixfile do
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     aliases: aliases,
      deps: deps]
   end
 
@@ -31,6 +32,12 @@ defmodule Authordb.Mixfile do
     [
       {:postgrex, "~> 0.11.0"},
       {:ecto, "~> 1.1"}
+    ]
+  end
+
+  defp aliases do
+    [
+      "ecto.setup": ["ecto.drop", "ecto.create", "ecto.migrate", "run priv/repo/seed.exs"]
     ]
   end
 end
