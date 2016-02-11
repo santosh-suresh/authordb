@@ -20,4 +20,8 @@ defmodule Authordb.Publisher do
 		|> cast(params, @required_fields, @optional_fields)
 	end
 
+	def find_by_name(name) do
+		from p in Authordb.Publisher, where: p.name == ^name
+	end
+
 end

@@ -1,15 +1,5 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
-use Mix.Config
-
-config :authordb, Authordb.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "authordb_repo",
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost"
-
-
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
@@ -35,4 +25,6 @@ config :authordb, Authordb.Repo,
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-#     import_config "#{Mix.env}.exs"
+use Mix.Config
+
+import_config "#{Mix.env}.exs"
