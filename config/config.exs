@@ -5,9 +5,9 @@ use Mix.Config
 config :authordb, Authordb.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "authordb_repo",
-  username: "santoshs",
-  password: "santoshs",
-  hostname: "localhost" 
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
 
 
 # This configuration is loaded before any dependency and is restricted
